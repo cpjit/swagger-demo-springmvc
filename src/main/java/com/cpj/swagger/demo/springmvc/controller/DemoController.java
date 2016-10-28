@@ -30,7 +30,7 @@ public class DemoController {
 	@API(value="login", summary="示例1", parameters={
 			@Param(name="username", description="用户名", type="string"),
 			@Param(name="password", description="密码", type="string", format="password"),
-			@Param(name="image" , description="图片", type="file", format="binary")
+			@Param(name="image" , description="图片", type="file")
 	})
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	public void login(HttpServletResponse response, String username, String password, MultipartFile image) throws Exception {

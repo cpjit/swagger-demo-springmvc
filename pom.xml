@@ -7,15 +7,7 @@
 	<version>1.0.0</version>
 	<name>jpush Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	
-	<repositories>
-		<repository>
-			<id>cpj-repository</id>
-			<name>cpj-repository</name>
-			<url>https://raw.githubusercontent.com/sweetit/repository/master/</url>
-		</repository>
-	</repositories>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -24,13 +16,10 @@
 		</dependency>
 
 		<dependency>
-		<groupId>log4j</groupId>
-		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
-	</dependency>
-		
-
-		
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -110,21 +99,21 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.cpj</groupId>
-			<artifactId>cpj-common</artifactId>
-			<version>1.5.0.RELEASE</version>
-		</dependency>
-		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.3cpj</groupId>
+			<artifactId>cpj-common</artifactId>
+			<version>1.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.3cpj</groupId>
