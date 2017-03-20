@@ -1,9 +1,20 @@
 /*
- *
- * Copyright (c) 2011, 2016 CPJ and/or its affiliates. All rights reserved.
+ * Copyright 2011-2017 CPJIT Group.
  * 
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. 
  */
-package com.cpj.swagger.demo.springmvc.controller;
+package com.cpjit.swagger4j.demo.springmvc.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,9 +27,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSONWriter;
-import com.cpj.swagger.annotation.API;
-import com.cpj.swagger.annotation.APIs;
-import com.cpj.swagger.annotation.Param;
+import com.cpjit.swagger4j.annotation.API;
+import com.cpjit.swagger4j.annotation.APIs;
+import com.cpjit.swagger4j.annotation.DataType;
+import com.cpjit.swagger4j.annotation.Param;
 
 /**
  * @author yonghuan
@@ -28,9 +40,9 @@ import com.cpj.swagger.annotation.Param;
 @APIs("/demo")
 public class DemoController {
 	@API(value="login", summary="示例1", parameters={
-			@Param(name="username", description="用户名", type="string"),
-			@Param(name="password", description="密码", type="string", format="password"),
-			@Param(name="image" , description="图片", type="file")
+			@Param(name="username", description="用户名", dataType=DataType.STRING),
+			@Param(name="password", description="密码", dataType=DataType.PASSWORD),
+			@Param(name="image" , description="图片", dataType=DataType.FILE)
 	})
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	public void login(HttpServletResponse response, String username, String password, MultipartFile image) throws Exception {
@@ -45,9 +57,9 @@ public class DemoController {
 	}
 	
 	@API(value="logout", summary="示例2", parameters={
-			@Param(name="username", description="用户名", type="string"),
-			@Param(name="password", description="密码", type="string", format="password"),
-			@Param(name="image" , description="图片", type="file", format="binary")
+			@Param(name="username", description="用户名", dataType=DataType.STRING),
+			@Param(name="password", description="密码", dataType=DataType.PASSWORD),
+			@Param(name="image" , description="图片", dataType=DataType.FILE)
 	})
 	@RequestMapping(value="logout", method=RequestMethod.POST)
 	public void logout(HttpServletResponse response, String username, String password, MultipartFile image) throws Exception {
