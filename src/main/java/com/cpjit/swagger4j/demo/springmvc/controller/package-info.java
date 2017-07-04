@@ -16,10 +16,15 @@
  */
 /**
  * @author yonghuan
- *
  */
-@APITags(tags = { @APITag(description = "应用程序接口", value = "demo") })
+@APITags(tags = {@APITag(description = "应用程序接口", value = "demo")})
+@Items(items = {
+        @Item(value = "sex", type = "string", optionalValue = {"男", "女", "未知"}, defaultValue = "未知")
+})
 package com.cpjit.swagger4j.demo.springmvc.controller;
+
 import com.cpjit.swagger4j.annotation.APITag;
 import com.cpjit.swagger4j.annotation.APITags;
+import com.cpjit.swagger4j.annotation.Item;
+import com.cpjit.swagger4j.annotation.Items;
 

@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSONWriter;
@@ -40,18 +41,17 @@ import com.cpjit.swagger4j.annotation.Param;
 @APIs("/demo")
 public class DemoController {
 	@API(value="login", summary="示例1", parameters={
-			@Param(name="username", description="用户名", dataType=DataType.STRING),
+			@Param(name="username", description="用户名", dataType=DataType.STRING, defaultValue = "admin"),
 			@Param(name="password", description="密码", dataType=DataType.PASSWORD),
+			@Param(name = "sex", description = "性别", dataType = DataType.ARRAY, items = "sex"),
+			@Param(name = "age", description = "年龄", dataType = DataType.INTEGER, defaultValue = "18"),
 			@Param(name="image" , description="图片", dataType=DataType.FILE)
 	})
 	@RequestMapping(value="login", method=RequestMethod.POST)
-	public void login(HttpServletResponse response, String username, String password, MultipartFile image) throws Exception {
+	public void login(@RequestParam Map<String, Object> param, MultipartFile image, HttpServletResponse response) throws Exception {
 		response.setContentType("application/json;charset=utf-8");
 		JSONWriter writer = new JSONWriter(response.getWriter());
-		Map<String, String> user = new HashMap<String, String>();
-		user.put("username", username);
-		user.put("password", password);
-		writer.writeObject(user);
+		writer.writeObject(param);
 		writer.flush();
 		writer.close();
 	}
