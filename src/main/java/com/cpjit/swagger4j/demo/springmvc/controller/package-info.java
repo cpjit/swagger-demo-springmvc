@@ -21,13 +21,6 @@
 @Items(items = {
         @Item(value = "sex", type = "string", optionalValue = {"男", "女", "未知"}, defaultValue = "未知")
 })
-
-@APISchemas(schemas = {
-        @APISchema(value = "user", xml = "user",
-                properties = {@APISchemaPropertie(value = "username", type = "string", format = "", description = "用户名"),
-                        @APISchemaPropertie(value = "password", type = "string", format = "password", description = "登录密码")}
-        )
-})
 package com.cpjit.swagger4j.demo.springmvc.controller;
 
 import com.cpjit.swagger4j.annotation.*;

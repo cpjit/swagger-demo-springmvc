@@ -16,8 +16,10 @@
  */
 package com.cpjit.swagger4j.demo.springmvc.controller;
 
-import com.cpjit.swagger4j.annotation.*;
-import com.sun.prism.PixelFormat;
+import com.cpjit.swagger4j.annotation.APIs;
+import com.cpjit.swagger4j.annotation.DataType;
+import com.cpjit.swagger4j.annotation.Param;
+import com.cpjit.swagger4j.annotation.Post;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,7 +38,7 @@ import java.util.Map;
 public class DemoController {
     @Post(value = "login", summary = "示例1", parameters = {
             @Param(name = "username", description = "用户名", dataType = DataType.STRING, required = true, in = "body"),
-            @Param(name = "password", description = "密码", dataType = PixelFormat.DataType.PASSWORD, required = true, in = "body"),
+            @Param(name = "password", description = "密码", dataType = DataType.PASSWORD, required = true, in = "body"),
             @Param(name = "sex", description = "性别", dataType = DataType.INTEGER, items = "0,1", in = "body"),
     })
     @RequestMapping(value = "login", method = RequestMethod.POST)
