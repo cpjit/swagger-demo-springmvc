@@ -16,17 +16,14 @@
  */
 package com.cpjit.swagger4j.demo.springmvc.controller;
 
-import com.cpjit.swagger4j.annotation.API;
-import com.cpjit.swagger4j.annotation.APIs;
-import com.cpjit.swagger4j.annotation.DataType;
-import com.cpjit.swagger4j.annotation.Param;
+import com.cpjit.swagger4j.annotation.*;
+import com.sun.prism.PixelFormat;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,15 +34,17 @@ import java.util.Map;
 @RequestMapping("/demo")
 @APIs("/demo")
 public class DemoController {
-    @API(value = "login", summary = "示例1", parameters = {
-            @Param(schema = "user", in = "body"),
+    @Post(value = "login", summary = "示例1", parameters = {
+            @Param(name = "username", description = "用户名", dataType = DataType.STRING, required = true, in = "body"),
+            @Param(name = "password", description = "密码", dataType = PixelFormat.DataType.PASSWORD, required = true, in = "body"),
+            @Param(name = "sex", description = "性别", dataType = DataType.INTEGER, items = "0,1", in = "body"),
     })
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public Object login(@RequestBody Map<String, Object> param) throws Exception {
         return param;
     }
 
-    @API(value = "logout", summary = "示例2", parameters = {
+    @Post(value = "logout", summary = "示例2", parameters = {
             @Param(name = "username", description = "用户名", dataType = DataType.STRING),
             @Param(name = "password", description = "密码", dataType = DataType.PASSWORD),
             @Param(name = "image", description = "图片", dataType = DataType.FILE)
