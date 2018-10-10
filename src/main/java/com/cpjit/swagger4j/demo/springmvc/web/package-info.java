@@ -21,7 +21,7 @@
 @Items(items = {
         @Item(value = "sex", type = "string", optionalValue = {"男", "女", "未知"}, defaultValue = "未知")
 })
-package com.cpjit.swagger4j.demo.springmvc.controller;
+package com.cpjit.swagger4j.demo.springmvc.web;
 
 import com.cpjit.swagger4j.annotation.*;
 

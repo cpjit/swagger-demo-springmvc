@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.cpjit.swagger4j.demo.springmvc.controller;
+package com.cpjit.swagger4j.demo.springmvc.web;
 
 import com.cpjit.swagger4j.annotation.APIs;
 import com.cpjit.swagger4j.annotation.DataType;
