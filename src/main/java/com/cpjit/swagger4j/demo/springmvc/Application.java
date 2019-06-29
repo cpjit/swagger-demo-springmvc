@@ -8,7 +8,6 @@ import org.springframework.context.annotation.ComponentScans;
 /**
  * @author yonghuan
  */
-@ComponentScan(basePackages = "com.cpjit.swagger4j")
 @SpringBootApplication
 public class Application {
 
