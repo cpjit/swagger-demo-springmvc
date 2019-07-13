@@ -16,10 +16,7 @@
  */
 package com.cpjit.swagger4j.demo.springmvc.web;
 
-import com.cpjit.swagger4j.annotation.APIs;
-import com.cpjit.swagger4j.annotation.DataType;
-import com.cpjit.swagger4j.annotation.Param;
-import com.cpjit.swagger4j.annotation.Post;
+import com.cpjit.swagger4j.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,8 +36,8 @@ public class DemoController {
     @Post(value = "login", summary = "示例1", parameters = {
             @Param(name = "username", description = "用户名", dataType = DataType.STRING, required = true, in = "body"),
             @Param(name = "password", description = "密码", dataType = DataType.PASSWORD, required = true, in = "body"),
-            @Param(name = "sex", description = "性别", dataType = DataType.INTEGER, items = "0,1", in = "body"),
-    })
+            @Param(name = "sex", description = "性别", dataType = DataType.INTEGER, items = "0,1", in = "body"),}
+            , responses = @Response(schemaClass = User.class))
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public Object login(@RequestBody Map<String, Object> param) throws Exception {
         return param;

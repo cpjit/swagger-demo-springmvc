@@ -17,7 +17,7 @@ public class SwaggerConfig {
         FilterRegistrationBean bean = new FilterRegistrationBean();
         SwaggerFilter filter = new SwaggerFilter();
         bean.setFilter(filter);
-        bean.setUrlPatterns(Collections.singletonList("/doc/*"));
+        bean.setUrlPatterns(Collections.singletonList("/api/*"));
         return bean;
     }
 }
